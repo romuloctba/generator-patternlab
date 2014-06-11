@@ -5,11 +5,11 @@
 
 ## Getting Started
 
-- Install Yeoman `npm install -g yo` (one-time install).
-- Clone this repo to anywhere you'd like, navigate to it, and type `npm link` (note: we'll eventually make this an installable node package once the kinks are worked out).
-- From the terminal, navigate to your site's directory (hint: creating a UI directory from root works pretty well).
-- Type `yo patternlab`, answer a few questions about your project, wait.
-- Type `grunt` to generate your first Pattern Lab build, then `grunt watch` to start the watcher.
+- Install Yeoman `npm install -g yo` (one-time global install).
+- Install this generator with `npm install -g generator-patternlab` (one-time global install).
+- From the terminal, navigate to your site's directory (hint: creating a separate UI directory in the project root works pretty well).
+- Type `yo patternlab`, answer a few questions about your project, and wait.
+- When it's done, type `grunt` to generate your first Pattern Lab build, then `grunt watch` to start the watcher.
 - Bask in the glory of your fully scaffolded site. 
 
 ## Development Plans

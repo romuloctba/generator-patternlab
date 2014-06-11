@@ -1,4 +1,4 @@
-# generator-patternlab [![Build Status](https://secure.travis-ci.org/degdigital/generator-patternlab.png?branch=master)](https://travis-ci.org/degdigital/generator-patternlab)
+# generator-patternlab
 
 > A [Yeoman](http://yeoman.io) generator for [Pattern Lab](http://patternlab.io/), a static site generator based on Brad Frost's ["Atomic Design"](http://bradfrostweb.com/blog/post/atomic-web-design/) methodologies.
 > Scaffolds out a new Pattern Lab site, along with a few other optional workflow bells and whistles (Compass, Sass, Bower, Grunt) and front-end dependencies (jQuery, Modernizr, etc.).

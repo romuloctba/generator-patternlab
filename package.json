@@ -1,0 +1,36 @@
+{
+  "name": "generator-patternlab",
+  "version": "0.1.0",
+  "description": "Yeoman Pattern Lab Generator",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "degdigital/generator-patternlab",
+  "author": {
+    "name": "Aaron Ladage",
+    "email": "aladage@degdigital.com",
+    "url": "https://github.com/degdigital"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "yeoman-generator": "~0.16.0",
+    "chalk": "~0.4.0",
+    "yosay": "^0.1.0"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "peerDependencies": {
+    "yo": ">=1.0.0"
+  }
+}

@@ -72,6 +72,16 @@ var DegPatternlabGenerator = module.exports = yeoman.generators.Base.extend({
             this.includeModernizr = hasFeature('includeModernizr');
             this.projectType = props.projectType;
 
+            this.dependencies = {};
+
+            if ( this.includeJquery ) {
+                this.dependencies["jquery"] = "~1.11.1";
+            }
+
+            if ( this.includeModernizr ) {
+                this.dependencies["modernizr"] = "~2.8.2";
+            }
+
             cb();
 
         }.bind(this));
@@ -79,6 +89,8 @@ var DegPatternlabGenerator = module.exports = yeoman.generators.Base.extend({
     },
 
     configuring: function() {
+        var done = this.async();
+
         this.mkdir('grunt');
 
         this.copy('_package.json', 'package.json');
@@ -92,18 +104,22 @@ var DegPatternlabGenerator = module.exports = yeoman.generators.Base.extend({
         this.copy('grunt/_uglify.js', 'grunt/uglify.js');
         this.copy('grunt/_watch.js', 'grunt/watch.js');
 
-        // this.remote('degdigital', 'patternlab-php', function(err, remote) {
-        //     remote.copy('.', 'core');
-        // });
+        this.remote('degdigital', 'patternlab-php', 'master', function(err, remote) {
+            remote.directory('.', 'patternlab');
+            done();
+        });
 
+        this.remote('degdigital', 'patternlab-templates', 'master', function(err, remote) {
+            remote.directory('.', 'patternlab/source');
+            done();
+        });
     },
 
     installing: function () {
         this.on('end', function() {
             this.installDependencies({
                 callback: function () {
-
-                    this.spawnCommand('grunt', ['copy:patternlab']);
+                    //this.spawnCommand('grunt', ['copy:patternlab']);
                 }.bind(this)
             });
         });

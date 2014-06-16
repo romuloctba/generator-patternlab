@@ -1,22 +1,5 @@
 {
     "name": "<%= _.slugify(projectName) %>",
     "version": "1.0.0",
-    "dependencies": {
-        "patternLab": "https://github.com/degdigital/patternlab-php.git#master"
-        <% if (projectType == 'general') { %>
-            ,"patternLabTemplates": "https://github.com/degdigital/patternlab-templates.git#master"
-        <% } %>
-        <% if (projectType == 'magento') { %>
-            ,"patternLabTemplates": "https://github.com/degdigital/patternlab-templates.git#magento"
-        <% } %>
-        <% if (projectType == 'wordpress') { %>
-            ,"patternLabTemplates": "https://github.com/degdigital/patternlab-templates.git#wordpress"
-        <% } %>
-    	<% if (includeJquery) { %>
-    		,"jquery": "~1.11.1" 
-    	<% } %>
-    	<% if (includeModernizr) { %>
-    		,"modernizr": "~2.8.2"
-    	<% } %>
-    }
+    "dependencies": <%= JSON.stringify(dependencies) %>
 }

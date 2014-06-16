@@ -1,6 +1,6 @@
 # generator-patternlab
 
-> A [Yeoman](http://yeoman.io) generator for [Pattern Lab](http://patternlab.io/), a static site generator based on Brad Frost's ["Atomic Design"](http://bradfrostweb.com/blog/post/atomic-web-design/) methodologies.
+> A [Yeoman](http://yeoman.io) generator for [Pattern Lab](http://patternlab.io/), a static site generator based on Brad Frost's [Atomic Design](http://bradfrostweb.com/blog/post/atomic-web-design/) methodologies.
 > Scaffolds out a new Pattern Lab site, along with a few other optional workflow bells and whistles (Compass, Sass, Bower, Grunt) and front-end dependencies (jQuery, Modernizr, etc.).
 
 ## Getting Started
@@ -14,11 +14,13 @@
 
 ## Development Plans
 - The generator works but is pretty basic at this point.
-- The PL repo is currently being pulled with Bower. I want to replace it with the native Yeoman this.remote/remote.directory methods, which will allow us to parse Yeoman variables directly in the patterns.
-- Bower packages are downloaded based on Yeoman prompts, but aren't automatically referenced in the patterns (see #2).
+- Patterns need to be updated to include preferences set in Yeoman prompts.
 - Better Grunt and Sass config options (grunt-modernizr, sass-globbing, etc.).
 - Add .gitignore and .sublime-project templates
 
 ## Changelog
+- 0.2.0
+  - Cloning Pattern Lab now handled natively by Yeoman, instead of Bower.  
+
 - 0.1.0
   - First commit. Functional but needs work.

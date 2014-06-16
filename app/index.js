@@ -104,7 +104,7 @@ var DegPatternlabGenerator = module.exports = yeoman.generators.Base.extend({
         this.copy('grunt/_uglify.js', 'grunt/uglify.js');
         this.copy('grunt/_watch.js', 'grunt/watch.js');
 
-        this.remote('degdigital', 'patternlab-php', 'master', function(err, remote) {
+        this.remote('pattern-lab', 'patternlab-php', 'master', function(err, remote) {
             remote.directory('.', 'patternlab');
             done();
         });
@@ -113,6 +113,8 @@ var DegPatternlabGenerator = module.exports = yeoman.generators.Base.extend({
             remote.directory('.', 'patternlab/source');
             done();
         });
+
+        this.copy('_001-move-source.json', 'core/migrations/001-move-source.json');
     },
 
     installing: function () {

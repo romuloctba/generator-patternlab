@@ -88,36 +88,37 @@ var DegPatternlabGenerator = module.exports = yeoman.generators.Base.extend({
 
     },
 
-    configuring: function() {
+    copyingFiles: function() {
         var done = this.async();
-
-        this.mkdir('grunt');
 
         this.copy('_package.json', 'package.json');
         this.copy('_bower.json', 'bower.json');
         this.copy('_Gruntfile.js', 'Gruntfile.js');
-        this.copy('grunt/_aliases.yaml', 'grunt/aliases.yaml');
-        this.copy('grunt/_compass.js', 'grunt/compass.js');
-        this.copy('grunt/_copy.js', 'grunt/copy.js');
-        this.copy('grunt/_gitclone.js', 'grunt/gitclone.js');
-        this.copy('grunt/_shell.js', 'grunt/shell.js');
-        this.copy('grunt/_uglify.js', 'grunt/uglify.js');
-        this.copy('grunt/_watch.js', 'grunt/watch.js');
+        this.directory('grunt', 'grunt');
 
-        this.remote('pattern-lab', 'patternlab-php', 'master', function(err, remote) {
-            remote.directory('.', 'patternlab');
+        done();
+    }
+
+    cloningPatternLab: function() {
+        var done = this.async();
+
+        this.remote('degdigital', 'patternlab-php', 'master', function(err, remote) {
+            remote.directory('.', '');
             done();
         });
 
-        this.remote('degdigital', 'patternlab-templates', 'master', function(err, remote) {
-            remote.directory('.', 'patternlab/source');
-            done();
-        });
-
-        this.copy('_001-move-source.json', 'core/migrations/001-move-source.json');
     },
 
-    installing: function () {
+    cloningPatternLabTemplates: function() {
+        var done = this.async();
+
+        this.remote('degdigital', 'patternlab-templates', 'master', function(err, remote) {
+            remote.directory('.', 'source');
+            done();
+        });
+    },
+
+    installingDependencies: function () {
         this.on('end', function() {
             this.installDependencies({
                 callback: function () {

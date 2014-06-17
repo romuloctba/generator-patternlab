@@ -1,6 +1,6 @@
 {
   "name": "generator-patternlab",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Yeoman Pattern Lab Generator",
   "license": "MIT",
   "main": "app/index.js",
@@ -36,7 +36,6 @@
   "peerDependencies": {
     "yo": ">=1.0.0"
   },
-  "readme": "# generator-patternlab\n\n> A [Yeoman](http://yeoman.io) generator for [Pattern Lab](http://patternlab.io/), a static site generator based on Brad Frost's [Atomic Design](http://bradfrostweb.com/blog/post/atomic-web-design/) methodologies.\n> Scaffolds out a new Pattern Lab site, along with a few other optional workflow bells and whistles (Compass, Sass, Bower, Grunt) and front-end dependencies (jQuery, Modernizr, etc.).\n\n## Getting Started\n\n- Install Yeoman `npm install -g yo` (one-time global install).\n- Install this generator with `npm install -g generator-patternlab` (one-time global install).\n- From the terminal, navigate to your site's directory (hint: creating a separate UI directory in the project root works pretty well).\n- Type `yo patternlab`, answer a few questions about your project, and wait.\n- When it's done, type `grunt` to generate your first Pattern Lab build, then `grunt watch` to start the watcher.\n- Bask in the glory of your fully scaffolded site. \n\n## Development Plans\n- The generator works but is pretty basic at this point.\n- Patterns need to be updated to include preferences set in Yeoman prompts.\n- Better Grunt and Sass config options (grunt-modernizr, sass-globbing, etc.).\n- Add .gitignore and .sublime-project templates\n\n## Changelog\n- 0.2.0\n  - Cloning Pattern Lab now handled natively by Yeoman, instead of Bower.  \n\n- 0.1.0\n  - First commit. Functional but needs work.",
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/degdigital/generator-patternlab/issues"

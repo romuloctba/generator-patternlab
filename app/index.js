@@ -97,7 +97,7 @@ var DegPatternlabGenerator = module.exports = yeoman.generators.Base.extend({
         this.directory('grunt', 'grunt');
 
         done();
-    }
+    },
 
     cloningPatternLab: function() {
         var done = this.async();

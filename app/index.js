@@ -6,7 +6,7 @@ var yosay = require('yosay');
 var chalk = require('chalk');
 
 
-var DegPatternlabGenerator = module.exports = yeoman.generators.Base.extend({
+var PatternlabGenerator = module.exports = yeoman.generators.Base.extend({
 
     initializing: function() {
         this.pkg = require('../package.json');
@@ -15,15 +15,14 @@ var DegPatternlabGenerator = module.exports = yeoman.generators.Base.extend({
     prompting: function() {
         var cb = this.async();
 
-        // Have Yeoman greet the user.
-        this.log(yosay('Welcome to the marvelous DEG Patternlab generator!'));
+        this.log(yosay('Welcome to the marvelous Pattern Lab generator!'));
 
         var prompts = [
             {
                 type: 'input',
                 name: 'projectName',
                 message: 'What is the name of this project?',
-                default: 'DEG Project'
+                default: 'Pattern Lab Project'
             },
             {
                 type: 'checkbox',
@@ -31,12 +30,8 @@ var DegPatternlabGenerator = module.exports = yeoman.generators.Base.extend({
                 name: 'features',
                 choices: [
                     {
-                        name: 'jQuery (1.11.1)',
+                        name: 'jQuery (~1.11.1)',
                         value: 'includeJquery'
-                    },
-                    {
-                        name: 'Modernizr (2.8.2)',
-                        value: 'includeModernizr'
                     }
                 ]
             },
@@ -47,7 +42,7 @@ var DegPatternlabGenerator = module.exports = yeoman.generators.Base.extend({
                 choices: [
                     {
                         name: 'No Platform',
-                        value: 'general'
+                        value: 'master'
                     },
                     {
                         name: 'Magento',
@@ -69,7 +64,6 @@ var DegPatternlabGenerator = module.exports = yeoman.generators.Base.extend({
 
             this.projectName = props.projectName;
             this.includeJquery = hasFeature('includeJquery');
-            this.includeModernizr = hasFeature('includeModernizr');
             this.projectType = props.projectType;
 
             this.dependencies = {};
@@ -78,17 +72,13 @@ var DegPatternlabGenerator = module.exports = yeoman.generators.Base.extend({
                 this.dependencies["jquery"] = "~1.11.1";
             }
 
-            if ( this.includeModernizr ) {
-                this.dependencies["modernizr"] = "~2.8.2";
-            }
-
             cb();
 
         }.bind(this));
 
     },
 
-    copyingFiles: function() {
+    copyingDependencyFiles: function() {
         var done = this.async();
 
         this.copy('_package.json', 'package.json');
@@ -102,7 +92,7 @@ var DegPatternlabGenerator = module.exports = yeoman.generators.Base.extend({
     cloningPatternLab: function() {
         var done = this.async();
 
-        this.remote('degdigital', 'patternlab-php', 'master', function(err, remote) {
+        this.remote('pattern-lab', 'patternlab-php', 'master', function(err, remote) {
             remote.directory('.', '');
             done();
         });
@@ -112,17 +102,34 @@ var DegPatternlabGenerator = module.exports = yeoman.generators.Base.extend({
     cloningPatternLabTemplates: function() {
         var done = this.async();
 
-        this.remote('degdigital', 'patternlab-templates', 'master', function(err, remote) {
+        this.remote('degdigital', 'patternlab-templates', this.projectType, function(err, remote) {
             remote.directory('.', 'source');
             done();
         });
+    },
+
+    copyingJsFiles: function() {
+        var done = this.async();
+
+        this.mkdir('app');
+        this.mkdir('source/js');
+        this.mkdir('source/js/source');
+        this.mkdir('source/js/source/components');
+        this.mkdir('source/js/source/lib');
+        this.mkdir('source/js/source/plugins');
+
+        this.copy('js/_global.js', 'source/js/source/global.js');
+        this.copy('js/_modernizr-latest.js', 'source/js/source/lib/modernizr-latest.js');
+
+        done();
     },
 
     installingDependencies: function () {
         this.on('end', function() {
             this.installDependencies({
                 callback: function () {
-                    //this.spawnCommand('grunt', ['copy:patternlab']);
+                    this.log(yosay('Your site is ready! Type "grunt" or "grunt watch" to compile your first Pattern Lab build.'));
+                    
                 }.bind(this)
             });
         });

@@ -15,10 +15,12 @@
 ## Development Plans
 - The generator works but is pretty basic at this point.
 - Patterns need to be updated to include preferences set in Yeoman prompts.
-- Better Grunt and Sass config options (grunt-modernizr, sass-globbing, etc.).
 - Add .gitignore and .sublime-project templates
 
 ## Changelog
+- 0.2.3
+  - Lots of changes. Starter JS files are scaffolded, templates are using a few Yo variables, and all Grunt tasks are working. The patterns still need a lot of cleanup, but the basic generator works well now.
+
 - 0.2.0
   - Cloning Pattern Lab now handled natively by Yeoman, instead of Bower.  
 

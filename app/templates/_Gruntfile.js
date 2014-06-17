@@ -13,6 +13,13 @@ module.exports = function(grunt) {
             html: 'public/patterns',
             images: 'source/images',
             patterns: 'source/_patterns'
+        },
+        app: {
+            css: 'app/css',
+            fonts: 'app/fonts',
+            js: 'app/js',
+            html: 'app/patterns',
+            images: 'app/images'
         }
     };
 

@@ -18,6 +18,9 @@
 - Add .gitignore and .sublime-project templates
 
 ## Changelog
+- 0.2.6
+  - Bug fixes for Modernizr, current year added, cleanup corresponding to template changes.
+
 - 0.2.5
   - Cleaned up jQuery and Modernizr options. Both now install via Bower, and conditionally load into Grunt and PL templates based on Yo variables.
 

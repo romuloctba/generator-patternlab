@@ -67,6 +67,8 @@ var PatternlabGenerator = module.exports = yeoman.generators.Base.extend({
                 return features.indexOf(feat) !== -1;
             }
 
+            this.currentYear = new Date().getFullYear();
+
             this.projectName = props.projectName;
             this.includeJquery = hasFeature('includeJquery');
             this.includeModernizr = hasFeature('includeModernizr');

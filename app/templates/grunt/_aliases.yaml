@@ -1,0 +1,14 @@
+default:
+    - uglify
+    - compass
+<% if (includeModernizr) { %>
+	- modernizr
+<% } %>
+    - 'shell:patternlab'
+
+'build-patternlab':
+	- 'shell:patternlab'
+
+push:
+    - 'copy:css'
+    - 'copy:js'

@@ -1,3 +1,4 @@
+<% if (includeJquery) { %>
 (function($, window, document) {
 
     window.<%= _.camelize(projectName) %> = window.<%= _.camelize(projectName) %> || {};
@@ -29,3 +30,4 @@
     });
 
 })(jQuery, window, document);
+<% } %>

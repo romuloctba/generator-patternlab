@@ -18,6 +18,9 @@
 - Add .gitignore and .sublime-project templates
 
 ## Changelog
+- 0.2.5
+  - Cleaned up jQuery and Modernizr options. Both now install via Bower, and conditionally load into Grunt and PL templates based on Yo variables.
+
 - 0.2.3
   - Lots of changes. Starter JS files are scaffolded, templates are using a few Yo variables, and all Grunt tasks are working. The patterns still need a lot of cleanup, but the basic generator works well now.
 

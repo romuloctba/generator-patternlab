@@ -32,6 +32,11 @@ var PatternlabGenerator = module.exports = yeoman.generators.Base.extend({
                     {
                         name: 'jQuery (~1.11.1)',
                         value: 'includeJquery'
+                    },
+
+                    {
+                        name: 'Modernizr/Grunt-Modernizr',
+                        value: 'includeModernizr'
                     }
                 ]
             },
@@ -64,12 +69,17 @@ var PatternlabGenerator = module.exports = yeoman.generators.Base.extend({
 
             this.projectName = props.projectName;
             this.includeJquery = hasFeature('includeJquery');
+            this.includeModernizr = hasFeature('includeModernizr');
             this.projectType = props.projectType;
 
             this.dependencies = {};
 
             if ( this.includeJquery ) {
                 this.dependencies["jquery"] = "~1.11.1";
+            }
+
+            if ( this.includeModernizr ) {
+                this.dependencies["modernizr"] = "latest";
             }
 
             cb();
@@ -84,7 +94,18 @@ var PatternlabGenerator = module.exports = yeoman.generators.Base.extend({
         this.copy('_package.json', 'package.json');
         this.copy('_bower.json', 'bower.json');
         this.copy('_Gruntfile.js', 'Gruntfile.js');
-        this.directory('grunt', 'grunt');
+
+        this.mkdir('grunt');
+        this.copy('grunt/_aliases.yaml', 'grunt/aliases.yaml');
+        this.copy('grunt/_compass.js', 'grunt/compass.js');
+        this.copy('grunt/_copy.js', 'grunt/copy.js');
+        this.copy('grunt/_shell.js', 'grunt/shell.js');
+        this.template('grunt/_uglify.js', 'grunt/uglify.js');
+        this.copy('grunt/_watch.js', 'grunt/watch.js');
+
+        if (this.includeModernizr) {
+            this.copy('grunt/_modernizr.js', 'grunt/modernizr.js');
+        }
 
         done();
     },
@@ -111,7 +132,7 @@ var PatternlabGenerator = module.exports = yeoman.generators.Base.extend({
     copyingJsFiles: function() {
         var done = this.async();
 
-        this.mkdir('app');
+        this.mkdir('export');
         this.mkdir('source/js');
         this.mkdir('source/js/source');
         this.mkdir('source/js/source/components');
@@ -119,7 +140,6 @@ var PatternlabGenerator = module.exports = yeoman.generators.Base.extend({
         this.mkdir('source/js/source/plugins');
 
         this.copy('js/_global.js', 'source/js/source/global.js');
-        this.copy('js/_modernizr-latest.js', 'source/js/source/lib/modernizr-latest.js');
 
         done();
     },

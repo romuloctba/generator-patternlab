@@ -2,6 +2,7 @@ module.exports = function(grunt) {
 
     var paths = {
         src: {
+            bower: 'bower_components',
             css: 'source/css',
             fonts: 'source/fonts',
             js: 'source/js/source'
@@ -15,11 +16,11 @@ module.exports = function(grunt) {
             patterns: 'source/_patterns'
         },
         app: {
-            css: 'app/css',
-            fonts: 'app/fonts',
-            js: 'app/js',
-            html: 'app/patterns',
-            images: 'app/images'
+            css: 'export/css',
+            fonts: 'export/fonts',
+            js: 'export/js',
+            html: 'export/patterns',
+            images: 'export/images'
         }
     };
 

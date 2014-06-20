@@ -18,6 +18,9 @@
 - Add .gitignore and .sublime-project templates
 
 ## Changelog
+- 0.2.7
+  - Fixed Grunt Modernizr path issue.
+
 - 0.2.6
   - Bug fixes for Modernizr, current year added, cleanup corresponding to template changes.
 

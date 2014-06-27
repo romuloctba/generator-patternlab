@@ -52,7 +52,7 @@ p {
 	transition: background-color .5s, color .5s;
 }
 
-.install:hover {
+.button-install:hover {
 	background-color: #fff;
 	color: #b6bcc9;;
 }

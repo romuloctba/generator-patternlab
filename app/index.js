@@ -4,12 +4,78 @@ var path = require('path');
 var yeoman = require('yeoman-generator');
 var yosay = require('yosay');
 var chalk = require('chalk');
-
+var execSync = require('execSync');
 
 var PatternlabGenerator = module.exports = yeoman.generators.Base.extend({
 
     initializing: function() {
         this.pkg = require('../package.json');
+    },
+
+// Name pattern templates by type rather than platform?
+// Put pattern lab files in it's own subfolder
+// Require/ugliy option
+// Move the pattern lab dependency away from degdigital
+// Where's your pattern lab template directory?
+// 
+// git ls-remote --heads git@github.com:degdigital/patternlab-templates.git
+// 
+// // https://www.npmjs.org/doc/cli/npm-config.html
+// npm config set patternlab-templates git@github.com:degdigital/patternlab-templates.git --global
+// npm config list
+// npm config get patternlab-templates
+
+
+    listTemplateRepository: function() {
+        var done = this.async();
+        var templateExec = execSync.exec('npm config get patternlab-templates');
+        var newTemplateRepo = templateExec.stdout; //.replace(/^\s+|\s+$/g,'');
+        var templateRepo = 'git@github.com:degdigital/patternlab-templates.git';
+
+        if ( newTemplateRepo != 'undefined' )
+            templateRepo = newTemplateRepo;
+
+        this.prompt([
+            {
+                type: 'input',
+                name: 'templateRepository',
+                message: 'Github template repository?',
+                default: templateRepo
+            }
+        ], function(props) {
+            this.templateRepo = props.templateRepository;
+            done();
+        }.bind(this));
+    },
+
+    listTemplateRepositoryBranches: function() {
+        var done = this.async();
+        var listExec = execSync.exec('git ls-remote --heads ' + this.templateRepo);
+        var list = listExec.stdout.match(/[^\r\n]+/g);
+        var templateBranches = [];
+
+        for ( var i=0; i<list.length; i++) {
+            var listItem = list[i].split('heads/');
+            var branch = listItem[1];
+            templateBranches.push({
+                name: branch,
+                value: branch
+            });
+        }
+
+        this.prompt([
+            {
+                type: 'list',
+                name: 'templateRepositoryBranch',
+                message: 'Which branch would you like to use?',
+                choices: templateBranches
+            }
+        ], function(props) {
+            this.templateRepositoryBranch = props.templateRepositoryBranch;
+            done();
+        }.bind(this));
+
+        console.log(this.templateRepositoryBranch);
     },
 
     prompting: function() {
@@ -58,7 +124,13 @@ var PatternlabGenerator = module.exports = yeoman.generators.Base.extend({
                         value: 'wordpress'
                     }
                 ]
-            }
+            }//,
+            //{
+            //    type: 'input',
+            //    message: 'Want some Pattern Lab templates?',
+            //    name: 'projectTemplates',
+            //    default: process.env
+            //}
         ];
 
         this.prompt(prompts, function(props) {

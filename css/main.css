@@ -1,0 +1,61 @@
+body {
+	background-color: #b6bcc9;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+}
+
+.content {
+	margin: 0 auto;
+	max-width: 80em;
+}
+
+.top-content {
+	color: #fff;
+	padding: 6.5em 0;
+	text-align: center;
+}
+
+
+
+h1 {
+	font-family: 'Josefin Slab', serif;
+	font-size: 2.5em;
+	font-weight: 400;
+	margin-bottom: .4em;
+	text-transform: uppercase;
+}
+
+p {
+	font-size: 1.125em;
+	margin-bottom: 5em;
+}
+
+.mascot {
+	margin: 0 1.5em;
+}
+
+.mascot-patternlab {
+	width: 13.375em;
+}
+
+.button-install {
+	border: 1px solid #fff;
+	border-radius: 4px;
+	color: #fff;
+	display: inline-block;
+	font-size: 1.25em;
+	padding: 0.625em 1.5em;
+	text-decoration: none;
+	transition: all .5s;
+}
+
+.install:hover {
+	background-color: #fff;
+	color: #b6bcc9;;
+}
+
+.bottom-content {
+	background-color: #000;
+	content: #fff;
+	height: 500px;
+}

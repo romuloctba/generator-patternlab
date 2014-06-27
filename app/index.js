@@ -35,8 +35,13 @@ var PatternlabGenerator = module.exports = yeoman.generators.Base.extend({
                     },
 
                     {
-                        name: 'Modernizr/Grunt-Modernizr',
+                        name: 'Modernizr/Grunt-Modernizr (Latest)',
                         value: 'includeModernizr'
+                    },
+
+                    {
+                        name: 'Require.js (~2.1.14)',
+                        value: 'includeRequire'
                     }
                 ]
             },
@@ -72,6 +77,7 @@ var PatternlabGenerator = module.exports = yeoman.generators.Base.extend({
             this.projectName = props.projectName;
             this.includeJquery = hasFeature('includeJquery');
             this.includeModernizr = hasFeature('includeModernizr');
+            this.includeRequire = hasFeature('includeRequire');
             this.projectType = props.projectType;
 
             this.dependencies = {};
@@ -102,9 +108,12 @@ var PatternlabGenerator = module.exports = yeoman.generators.Base.extend({
         this.copy('grunt/_compass.js', 'grunt/compass.js');
         this.copy('grunt/_copy.js', 'grunt/copy.js');
         this.copy('grunt/_shell.js', 'grunt/shell.js');
-        this.template('grunt/_uglify.js', 'grunt/uglify.js');
         this.copy('grunt/_watch.js', 'grunt/watch.js');
-
+        if (this.includeRequire) {
+            this.copy('grunt/_bower.js', 'grunt/bower.js');
+        } else {
+            this.template('grunt/_uglify.js', 'grunt/uglify.js');
+        }
         if (this.includeModernizr) {
             this.copy('grunt/_modernizr.js', 'grunt/modernizr.js');
         }
@@ -136,12 +145,16 @@ var PatternlabGenerator = module.exports = yeoman.generators.Base.extend({
 
         this.mkdir('export');
         this.mkdir('source/js');
-        this.mkdir('source/js/source');
-        this.mkdir('source/js/source/components');
-        this.mkdir('source/js/source/lib');
-        this.mkdir('source/js/source/plugins');
 
-        this.copy('js/_global.js', 'source/js/source/global.js');
+        if ( this.includeRequire ) {
+            this.copy('js/_global-require.js', 'source/js/global.js');
+        } else {
+            this.mkdir('source/js/source');
+            this.mkdir('source/js/source/components');
+            this.mkdir('source/js/source/lib');
+            this.mkdir('source/js/source/plugins');
+            this.copy('js/_global-norequire.js', 'source/js/source/global.js');
+        }
 
         done();
     },
@@ -150,6 +163,7 @@ var PatternlabGenerator = module.exports = yeoman.generators.Base.extend({
         this.on('end', function() {
             this.installDependencies({
                 callback: function () {
+                    this.spawnCommand('grunt', ['bower']);
                     this.log(yosay('Your site is ready! Type "grunt" or "grunt watch" to compile your first Pattern Lab build.'));
                     
                 }.bind(this)

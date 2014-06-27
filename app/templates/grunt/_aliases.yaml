@@ -1,7 +1,8 @@
-default:
-    - uglify
-    - compass
-    <% if (includeModernizr) { %>- modernizr<% } %>
+default:<% if (!includeRequire) { %>
+    - uglify<% } %>
+    - compass<% if (includeModernizr) { %>
+    - modernizr<% } %><% if (includeRequire) { %>
+    - bower<% } %>
     - 'shell:patternlab'
 
 'build-patternlab':

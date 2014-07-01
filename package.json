@@ -40,8 +40,8 @@
   "bugs": {
     "url": "https://github.com/degdigital/generator-patternlab/issues"
   },
-  "homepage": "https://github.com/degdigital/generator-patternlab",
-  "_id": "generator-patternlab@0.2.1",
+  "homepage": "http://degdigital.github.io/generator-patternlab/",
+  "_id": "generator-patternlab@0.3.0",
   "_shasum": "c91540aa0594a4d1ee2519db4c761d03addb805f",
   "_from": "generator-patternlab@"
 }

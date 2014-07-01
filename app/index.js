@@ -163,7 +163,9 @@ var PatternlabGenerator = module.exports = yeoman.generators.Base.extend({
         this.on('end', function() {
             this.installDependencies({
                 callback: function () {
-                    this.spawnCommand('grunt', ['bower']);
+                    if ( this.includeRequire ) {
+                        this.spawnCommand('grunt', ['bower']);
+                    }
                     this.log(yosay('Your site is ready! Type "grunt" or "grunt watch" to compile your first Pattern Lab build.'));
                     
                 }.bind(this)

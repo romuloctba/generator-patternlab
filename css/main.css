@@ -1,3 +1,20 @@
+@-webkit-keyframes spin {
+	0% { -webkit-transform: rotate(0deg);}
+	100% { -webkit-transform: rotate(360deg);}
+}
+@-moz-keyframes spin {
+	0% { -webkit-transform: rotate(0deg);}
+	100% { -webkit-transform: rotate(360deg);}
+}
+@-o-keyframes spin {
+	0% { -webkit-transform: rotate(0deg);}
+	100% { -webkit-transform: rotate(360deg);}
+}
+@keyframes spin {
+	0% { -webkit-transform: rotate(0deg);}
+	100% { -webkit-transform: rotate(360deg);}
+}
+
 body {
 	background-color: #b6bcc9;
 	font-family: 'Open Sans', sans-serif;
@@ -23,7 +40,7 @@ a {
 
 h1 {
 	font-family: 'Josefin Slab', serif;
-	font-size: 5.4em;
+	font-size: 5.7em;
 	font-weight: 400;
 	margin-bottom: .2em;
 	text-transform: uppercase;
@@ -34,12 +51,36 @@ p {
 	margin-bottom: 3em;
 }
 
-.mascot {
-	margin: 0 1.5em;
+.mascot-wrapper {
+	display: inline-block;
+	position: relative;
 }
 
-.mascot-patternlab {
-	width: 13.375em;
+.mascot-wrapper img:hover {
+	-webkit-animation: spin 0.5s backwards linear;
+	-moz-animation: spin 0.5s backwards linear;
+	-o-animation: spin 0.5s backwards linear;
+	animation: spin 0.5s backwards linear;
+}
+
+.yeoman-label,
+.patternlab-label {
+	color: white;
+	font-family: 'Rock Salt', cursive;
+	margin: 0;
+	position: absolute;
+}
+
+.yeoman-label {
+	left: -40px;
+	-webkit-transform: rotate(-37deg);
+	top: -10px;
+}
+
+.patternlab-label {
+	right: -60px;
+	-webkit-transform: rotate(37deg);
+	top: 15px;	
 }
 
 .button-install {

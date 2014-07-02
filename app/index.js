@@ -46,6 +46,17 @@ var PatternlabGenerator = module.exports = yeoman.generators.Base.extend({
                 ]
             },
             {
+                type: 'checkbox',
+                message: 'How about some Grunt stuff?',
+                name: 'gruntfeatures',
+                choices: [
+                    {
+                        name: 'Pagespeed/Ngrok',
+                        value: 'includePagespeed'
+                    }
+                ]
+            },
+            {
                 type: 'list',
                 message: 'What type of project is this?',
                 name: 'projectType',
@@ -68,8 +79,12 @@ var PatternlabGenerator = module.exports = yeoman.generators.Base.extend({
 
         this.prompt(prompts, function(props) {
             var features = props.features;
+            var gruntfeatures = props.gruntfeatures;
             function hasFeature (feat) {
                 return features.indexOf(feat) !== -1;
+            }
+            function hasGruntFeature (feat) {
+                return gruntfeatures.indexOf(feat) !== -1;
             }
 
             this.currentYear = new Date().getFullYear();
@@ -78,6 +93,7 @@ var PatternlabGenerator = module.exports = yeoman.generators.Base.extend({
             this.includeJquery = hasFeature('includeJquery');
             this.includeModernizr = hasFeature('includeModernizr');
             this.includeRequire = hasFeature('includeRequire');
+            this.includePagespeed = hasGruntFeature('includePagespeed');
             this.projectType = props.projectType;
 
             this.dependencies = {};
@@ -107,6 +123,9 @@ var PatternlabGenerator = module.exports = yeoman.generators.Base.extend({
         this.copy('grunt/_aliases.yaml', 'grunt/aliases.yaml');
         this.copy('grunt/_compass.js', 'grunt/compass.js');
         this.copy('grunt/_copy.js', 'grunt/copy.js');
+        if (this.includePagespeed) {
+            this.copy('grunt/_pagespeed.js', 'grunt/pagespeed.js');
+        }
         this.copy('grunt/_shell.js', 'grunt/shell.js');
         this.copy('grunt/_watch.js', 'grunt/watch.js');
         if (this.includeRequire) {

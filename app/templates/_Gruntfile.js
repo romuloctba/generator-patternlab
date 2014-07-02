@@ -29,5 +29,22 @@ module.exports = function(grunt) {
             paths: paths
         }
     });
+<% if (includePagespeed) { %>
+    grunt.registerTask('ngrok', 'Run pagespeed with ngrok', function() {
+        var ngrok = require('ngrok');
+        var done = this.async();
+        var port = 8888;
 
+        ngrok.connect(port, function(err, url) {
+            if (err !== null) {
+                grunt.fail.fatal(err);
+                return done();
+            }
+            grunt.config.set('pagespeed.options.url', url);
+            grunt.task.run('pagespeed');
+            done();
+        });
+    });
+    
+<% } %>
 };

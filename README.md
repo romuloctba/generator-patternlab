@@ -18,6 +18,9 @@
 - Add .gitignore and .sublime-project templates
 
 ## Changelog
+- 0.3.1
+  - Added Pagespeed/Ngrok support.
+
 - 0.3.0
   - Big change: integration of require.js. Also lots of small fixes and enhancements.
 

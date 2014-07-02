@@ -19,6 +19,9 @@
 
 ## Changelog
 - 0.3.1
+  - Added predefined Sublime Text project file.
+
+- 0.3.1
   - Added Pagespeed/Ngrok support.
 
 - 0.3.0

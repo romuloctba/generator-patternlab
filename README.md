@@ -18,7 +18,7 @@
 - Add .gitignore and .sublime-project templates
 
 ## Changelog
-- 0.3.1
+- 0.3.2
   - Added predefined Sublime Text project file.
 
 - 0.3.1

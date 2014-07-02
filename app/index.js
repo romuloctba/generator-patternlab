@@ -118,6 +118,7 @@ var PatternlabGenerator = module.exports = yeoman.generators.Base.extend({
         this.copy('_package.json', 'package.json');
         this.copy('_bower.json', 'bower.json');
         this.copy('_Gruntfile.js', 'Gruntfile.js');
+        this.copy('_.sublime-project', this._.slugify(this.projectName) + '.sublime-project');
 
         this.mkdir('grunt');
         this.copy('grunt/_aliases.yaml', 'grunt/aliases.yaml');

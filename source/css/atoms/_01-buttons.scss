@@ -1,0 +1,14 @@
+.button-install {
+	border: 1px solid $color-white;
+	@include border-radius(0.25em);
+	display: inline-block;
+	font-size: 1.25em;
+	padding: 0.625em 1.5em;
+	text-decoration: none;
+	@include transition(all, .5s);
+}
+
+.button-install:hover {
+	background-color: $color-white;
+	color: $color-grey;
+}

@@ -5,8 +5,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
 	
-	<link rel="stylesheet" href="css/normalize.css">
-	<link href='http://fonts.googleapis.com/css?family=Rock+Salt|Open+Sans|Josefin+Slab:300,400,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/main.css">
 
 	<title>Generator-Patternlab</title>
@@ -14,13 +12,15 @@
 <body>
 	<div class="content top-wrapper">
 		<div class="mascot-wrapper">
-			<img class="mascot mascot-yeoman" src="images/yeoman.png" alt="Howdy!">
-			<p class="yeoman-label">Yeoman!</p>
-			<img class="mascot mascot-patternlab" src="images/patternlab.png" alt="Time is a flat circle.">
-			<p class="patternlab-label">Pattern Lab!</p>
+			<div class="mascot mascot-yeoman">
+				<p class="mascot-label yeoman-label">Yeoman!</p>
+			</div>
+			<div class="mascot mascot-patternlab">
+				<p class="mascot-label patternlab-label">Pattern Lab!</p>
+			</div>
 		</div>
-		<h1>Yeo+Lab</h1>
-		<p>Like peanut butter and jelly, but less sticky.</p>
+		<h1 class="mascot-header">Yeo<span>+</span>Lab</h1>
+		<p class="mascot-slogan">Like peanut butter and jelly, but less sticky.</p>
 		<a class="button-install" href="https://github.com/degdigital/generator-patternlab">Install</a>
 	</div>
 	<div class="bottom-wrapper">
@@ -36,5 +36,6 @@
 			</div> -->
 		</div>
 	</div>
+	<script src="js/main.js"></script>
 </body>
 </html>

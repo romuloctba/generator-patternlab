@@ -1,0 +1,59 @@
+.mascot-wrapper {
+	display: inline-block;
+	position: relative;
+}
+
+.mascot {
+	background-image: url(../images/mascot-sprite.png);
+	background-repeat: no-repeat;
+	display: inline-block;
+	height: 14.5625em;
+	width: 14.25em;
+}
+
+.mascot-yeoman {
+	background-position: 0 0;
+}
+
+.mascot-patternlab {
+	background-position: -14.25em 0;
+}
+
+.mascot-label {
+	color: $color-white;
+	font-family: $font-family-tertiary;
+	font-size: 1.125em;
+	margin: 0;
+	position: absolute;
+}
+
+.yeoman-label {
+	left: -40px;
+	@include rotate(-37deg);
+	top: -10px;
+}
+
+.patternlab-label {
+	right: -60px;
+	@include rotate(37deg);
+	top: 15px;	
+}
+
+.mascot-header {
+	font-family: $font-family-secondary;
+	font-size: 5.7em;
+	font-weight: 400;
+	margin-bottom: .2em;
+	text-transform: uppercase;
+
+	span {
+		color: $color-black;
+		position: relative;
+		top: -.12em;
+	}
+}
+
+.mascot-slogan {
+	font-size: 1.125em;
+	margin-bottom: 3em;
+}

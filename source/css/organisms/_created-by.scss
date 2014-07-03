@@ -3,9 +3,13 @@
 	padding: 0;
 	li {
 		font-size: .8em;
-		margin: 1em 4em 0 0;
+		margin: 1em 5% 1em 0;
 		display: inline-block;
 		text-align: center;
+		width: 45%;
+		@media screen and (min-width: 30em) {
+			width: auto; margin-right: 4em;
+		}
 	}
 	a {
 		display: block;
@@ -17,6 +21,7 @@
 
 .creator-img { 
 	width: 125px;
+	max-width: 100%;
 	-webkit-filter: grayscale(100%);
 	border-radius: 50%;
 }

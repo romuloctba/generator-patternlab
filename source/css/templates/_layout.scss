@@ -1,10 +1,11 @@
 .content {
 	margin: 0 auto;
 	padding: $spacing-vertical $spacing-horizontal;
-	max-width: 80em;
+	max-width: 52em;
 }
 
 .top-wrapper {
+	background: $color-grey;
 	color: $color-white;
 	text-align: center;
 }
@@ -12,17 +13,13 @@
 .bottom-wrapper {
 	background-color: $color-black;
 	color: $color-white;
-	height: 31.25em;
+	.content { padding-top: 0; }
 }
 
 @media screen and (min-width: $mq-small) {
 
 	.content {
-		padding: 0;
-	}
-
-	.top-wrapper {
-		padding: 5em 0;
+		padding: $spacing-vertical-large $spacing-horizontal-large;
 	}
 
 }

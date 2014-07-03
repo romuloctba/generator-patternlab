@@ -1,11 +1,54 @@
 @import url(http://fonts.googleapis.com/css?family=Rock+Salt|Open+Sans|Josefin+Slab:300,400,700);
 
 body {
-	background-color: $color-grey;
+	background-color: $color-black;
 	font-family: $font-family-primary;
-	font-size: 16px;
+	font-size: 1em;
 }
 
 a {
-	color: $color-white;
+	color: $color-grey;
+	text-decoration: none;
+	@include transition(all, .5s);
+	&:hover { color: $color-dark-grey; }
+}
+
+h1,h2 {
+	font-family: $font-family-secondary;
+	text-transform: uppercase;
+	font-weight: 400;
+}
+h1 { font-size: 3em; }
+h2 { 
+	font-size: 1.5em; 
+	color: $color-grey;
+	margin: .75em 0 .5em; 
+}
+ol { padding-left: 1.5em; }
+li { margin: .75em 0; }
+
+code {
+	font-size: .8em;
+	padding: .25em .5em;
+	background: $color-grey;
+	color: darken($color-grey, 50%);
+	border-radius: .25em;
+	vertical-align: middle;
+	display: block;
+}
+
+@media screen and (min-width: 30em) {
+
+	h1 { font-size: 4.5em; }
+	code { white-space: nowrap; display: inline; }
+
+}
+
+@media screen and (min-width: $mq-small) {
+
+	h1 { font-size: 5.7em; }
+	h2 { font-size: 2.25em; }
+	ol { padding-left: 2em; }
+	p, li { font-size: 1.2em; }
+
 }

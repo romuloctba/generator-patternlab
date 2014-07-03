@@ -1,12 +1,16 @@
 $color-white: #fff;
 $color-black: #000;
 $color-grey: #b6bcc9;
+$color-dark-grey: darken($color-grey, 20%);
 
 $font-family-primary: 'Open Sans', sans-serif;
 $font-family-secondary: 'Josefin Slab', serif;
 $font-family-tertiary: 'Rock Salt', cursive;
 
-$spacing-vertical: .6em;
-$spacing-horizontal: .6em;
+$spacing-vertical: 2em;
+$spacing-horizontal: 1.5em;
+
+$spacing-vertical-large: $spacing-vertical * 2.5;
+$spacing-horizontal-large: $spacing-horizontal * 2;
 
 $mq-small: 38em;

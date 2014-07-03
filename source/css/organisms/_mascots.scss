@@ -25,9 +25,6 @@
 }
 
 .mascot-header {
-	font-family: $font-family-secondary;
-	font-size: 3em;
-	font-weight: 400;
 	margin-bottom: .2em;
 	text-transform: uppercase;
 
@@ -44,10 +41,6 @@
 }
 
 @media screen and (min-width: 30em) {
-
-	.mascot-header {
-		font-size: 4.5em;
-	}
 
 	.mascot-slogan {
 		font-size: 1em;
@@ -85,10 +78,6 @@
 		right: -60px;
 		@include rotate(37deg);
 		top: 15px;	
-	}
-
-	.mascot-header {
-		font-size: 5.7em;
 	}
 
 	.mascot-slogan {

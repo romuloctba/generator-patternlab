@@ -12,3 +12,16 @@
 	background-color: $color-white;
 	color: $color-grey;
 }
+
+.button-more {
+	display: none;
+}
+
+@media screen and (min-width: $mq-small) {
+
+	.button-more {
+		display: inline-block;
+		margin: 0 .2em;
+	}
+
+}

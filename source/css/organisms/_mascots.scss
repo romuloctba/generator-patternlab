@@ -6,9 +6,10 @@
 .mascot {
 	background-image: url(../images/mascot-sprite.png);
 	background-repeat: no-repeat;
+	background-size: 200%;
 	display: inline-block;
-	height: 14.5625em;
-	width: 14.25em;
+	height: 7.28125em;
+	width: 7.125em;
 }
 
 .mascot-yeoman {
@@ -16,32 +17,16 @@
 }
 
 .mascot-patternlab {
-	background-position: -14.25em 0;
+	background-position: -7.125em 0;
 }
 
 .mascot-label {
-	color: $color-white;
-	font-family: $font-family-tertiary;
-	font-size: 1.125em;
-	margin: 0;
-	position: absolute;
-}
-
-.yeoman-label {
-	left: -40px;
-	@include rotate(-37deg);
-	top: -10px;
-}
-
-.patternlab-label {
-	right: -60px;
-	@include rotate(37deg);
-	top: 15px;	
+	display: none;
 }
 
 .mascot-header {
 	font-family: $font-family-secondary;
-	font-size: 5.7em;
+	font-size: 3em;
 	font-weight: 400;
 	margin-bottom: .2em;
 	text-transform: uppercase;
@@ -54,6 +39,56 @@
 }
 
 .mascot-slogan {
-	font-size: 1.125em;
-	margin-bottom: 3em;
+	font-size: 0.9375em;
+	margin-bottom: 1em;
+}
+
+@media screen and (min-width: 30em) {
+	.mascot-slogan {
+		font-size: 1em;
+	}
+}
+
+@media screen and (min-width: $mq-small) {
+
+	.mascot {
+		background-size: initial;
+		height: 14.5625em;
+		width: 14.25em;
+	}
+
+	.mascot-label {
+		color: $color-white;
+		display: block;
+		font-family: $font-family-tertiary;
+		font-size: 1.125em;
+		margin: 0;
+		position: absolute;
+	}
+
+	.mascot-patternlab {
+		background-position: -14.25em 0;
+	}
+
+	.yeoman-label {
+		left: -40px;
+		@include rotate(-37deg);
+		top: -10px;
+	}
+
+	.patternlab-label {
+		right: -60px;
+		@include rotate(37deg);
+		top: 15px;	
+	}
+
+	.mascot-header {
+		font-size: 5.7em;
+	}
+
+	.mascot-slogan {
+		font-size: 1.125em;
+		margin-bottom: 3em;
+	}
+
 }

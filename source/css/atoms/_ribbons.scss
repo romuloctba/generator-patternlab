@@ -1,0 +1,16 @@
+.gh-ribbon {
+	display: none;
+}
+
+@media screen and (min-width: $mq-small) {
+	.gh-ribbon {
+		display: block;
+
+		img {
+			border: 0;
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+	}
+}

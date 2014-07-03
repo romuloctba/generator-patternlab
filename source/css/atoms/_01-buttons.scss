@@ -14,14 +14,6 @@
 }
 
 .button-more {
-	display: none;
-}
-
-@media screen and (min-width: $mq-small) {
-
-	.button-more {
-		display: inline-block;
-		margin: 0 .2em;
-	}
-
+	display: inline-block;
+	margin: 0 .2em;
 }

@@ -1,3 +1,17 @@
+@include keyframes(wiggle) {
+    0% { @include transform(rotate(0deg)); }
+    10% { @include transform(rotate(-10deg)); }
+    20% { @include transform(rotate(10deg)); }
+    30% { @include transform(rotate(-10deg)); }
+    40% { @include transform(rotate(10deg)); }
+    50% { @include transform(rotate(-10deg)); }
+    60% { @include transform(rotate(10deg)); }
+    70% { @include transform(rotate(-10deg)); }
+    80% { @include transform(rotate(10deg)); }
+    90% { @include transform(rotate(-10deg)); }
+    100% { @include transform(rotate(0deg)); }
+}
+
 .mascot-wrapper {
 	display: inline-block;
 	position: relative;
@@ -13,7 +27,14 @@
 }
 
 .mascot-yeoman {
-	background-position: 0 0;
+
+	&:hover {
+
+		&:before {
+			@include animation(wiggle .6s linear);
+		}
+
+	}
 }
 
 .mascot-patternlab {
@@ -53,6 +74,24 @@
 		background-size: initial;
 		height: 14.5625em;
 		width: 14.25em;
+	}
+
+	.mascot-yeoman {
+		background-image: url(../images/yeoman-nostache.png);
+		background-position: 0 0;
+		position: relative;
+
+		&:before {
+			background: url(../images/stache.png) center center no-repeat;
+			content: "";
+			display: block;
+			height: 2.625em;
+			margin-left: -3.76em;
+			position: absolute;
+			left: 50%;
+			top: 6.1em;
+			width: 8.3125em;
+		}
 	}
 
 	.mascot-label {

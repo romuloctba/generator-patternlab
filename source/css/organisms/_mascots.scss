@@ -12,6 +12,11 @@
     100% { @include transform(rotate(0deg)); }
 }
 
+@include keyframes(spin) {
+    0% { @include transform(rotate(0deg)); }
+    100% { @include transform(rotate(360deg)); }
+}
+
 .mascot-wrapper {
 	display: inline-block;
 	position: relative;
@@ -39,6 +44,14 @@
 
 .mascot-patternlab {
 	background-position: -7.125em 0;
+
+	&:hover {
+		
+		&:before {
+			@include animation(spin .7s ease-in-out);
+		}
+
+	}
 }
 
 .mascot-label {
@@ -74,6 +87,12 @@
 		background-size: initial;
 		height: 14.5625em;
 		width: 14.25em;
+		&:before {
+			content: "";
+			display: block;
+			position: absolute;
+			left: 50%;
+		}
 	}
 
 	.mascot-yeoman {
@@ -83,12 +102,8 @@
 
 		&:before {
 			background: url(../images/stache.png) center center no-repeat;
-			content: "";
-			display: block;
 			height: 2.625em;
 			margin-left: -3.76em;
-			position: absolute;
-			left: 50%;
 			top: 6.1em;
 			width: 8.3125em;
 		}
@@ -104,7 +119,16 @@
 	}
 
 	.mascot-patternlab {
-		background-position: -14.25em 0;
+		background-image: url(../images/patternlab-nocircle.png);
+		background-position: -.15em 1.15em;
+
+		&:before {
+			background: url(../images/circle.png) center center no-repeat;
+			margin-left: .15em;
+			top: 1em;
+			height: 14.5625em;
+			width: 14.25em;
+		}
 	}
 
 	.yeoman-label {

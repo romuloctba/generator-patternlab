@@ -26,14 +26,13 @@
 	border-radius: 50%;
 }
 
-.name,
-.title {
-	margin: 0; 
-}
 .name {
 	font-size: 1.5em;
+	margin: .5em 0 .25em;
 }
+
 .title { 
+	margin: 0;
 	color: $color-white; 
 	@include transition(all, .5s);
 }
